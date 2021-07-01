@@ -11,6 +11,8 @@ public class Cliente {
         CuadraGasEspecial c2=new CuadraGasEspecial(10);
 
         AdapterCuadra adapter=new AdapterCuadra(c,c1,c2);
+        adapter.cargar(10);
+        adapter.estadoDeElectricidad();
 
     }
 }
