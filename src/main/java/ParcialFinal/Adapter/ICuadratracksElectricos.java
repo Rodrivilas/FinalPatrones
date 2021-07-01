@@ -1,6 +1,6 @@
 package ParcialFinal.Adapter;
 
 public interface ICuadratracksElectricos {
-    void cargar(int gas);
+    void cargar(int carga);
     void estadoDeElectricidad();
 }
