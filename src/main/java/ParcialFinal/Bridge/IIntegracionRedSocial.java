@@ -1,5 +1,5 @@
 package ParcialFinal.Bridge;
 
 public interface IIntegracionRedSocial {
-    void inscribirse(Estudiante estudiante)
+    void inscribirse(Estudiante estudiante);
 }

@@ -17,17 +17,23 @@ public class Proxy implements  ICluster{
     }
 
     @Override
-    public void login(int usuarioNum, String contrasena) {
+    public void login(int ticketUsuario, String contrasena) {
         for(USuario usuario : USuarios) {
-            if(usuario.getContrasena().equals(contrasena) && usuario.getNumUsuario() == usuarioNum) {
-                if(usuario.getNumUsuario() == 0) {
-                    servidor1.login(usuarioNum, contrasena);
+            if(usuario.getContrasena().equals(contrasena) && usuario.getNumUsuario() == ticketUsuario) {
+                int cont=0;
+                for(int i=1; i<= usuario.getNumUsuario();i++){
+                    if((usuario.getNumUsuario()%i)==0){
+                        cont++;
+                    }
+                }
+                if(cont <= 2) {
+                    servidor1.login(ticketUsuario, contrasena);
                     usuario.showInfo();
                 }else {
-                    servidor2.login(usuarioNum, contrasena);
+                    servidor2.login(ticketUsuario, contrasena);
                     usuario.showInfo();
                 }
-            }else if(!usuario.getContrasena().equals(contrasena) && usuario.getNumUsuario() == usuarioNum){
+            }else if(!usuario.getContrasena().equals(contrasena) && usuario.getNumUsuario() == ticketUsuario){
                 System.out.println("Error al iniciar sesión");
             }
         }
